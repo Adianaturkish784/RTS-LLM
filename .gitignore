@@ -1,0 +1,69 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# IDEs & Agent Configs
+.vscode/
+.idea/
+.agents/
+.codex/
+*.swp
+*.swo
+*~
+AGENTS.md
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Checkpoints & model weights
+*.pth
+*.pt
+*.bin
+*.safetensors
+rts_ckpt/
+*.zip
+
+# Test results & generated outputs
+test_results/
+*.pdf
+
+# Large datasets (keep small ones if needed)
+dataset/
+
+# Sensitive/config files
+.env
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# DeepSpeed
+deepspeed_*.json
+
+# WandB / TensorBoard
+wandb/
+runs/
+
+# Local experiment results
+result_*.txt
+m4_results/
